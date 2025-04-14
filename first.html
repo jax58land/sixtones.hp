@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Login - 冒険準備ページ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ヘッダー（ナビゲーション付き） -->
+  <header>
+    <div class="banner">
+      <img src="images/banner.jpg" alt="会社バナー" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">WHO</a></li>
+        <li><a href="services.html">WHAT</a></li>
+        <li><a href="cases.html">PROOF?</a></li>
+        <li><a href="contact.html">QUEST</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- RPGステータスバー（推し・拠点・エネルギー） -->
+  <div class="rpg-ui" id="statusBox">
+    🧑‍🚀 推し：未選択 ｜ 🎵 拠点：未設定 ｜ 🔋 ENERGY：100%
+  </div>
+
+  <!-- 推し選択と拠点入力フォーム -->
+  <div class="hero">
+    <h1>推しを選択してください</h1>
+    <div id="oshiSelector">
+      <button class="oshi-btn">アカリ</button>
+      <button class="oshi-btn">レン</button>
+      <button class="oshi-btn">ミオ</button>
+      <button class="oshi-btn">カズマ</button>
+      <button class="oshi-btn">ナナ</button>
+      <button class="oshi-btn">ユウ</button>
+    </div>
+    <div id="songInputArea" style="margin-top:20px;">
+      <label for="favoriteSong">好きな曲を入力：</label>
+      <input type="text" id="favoriteSong" placeholder="曲名を入力...">
+      <button id="setBase">拠点を設定</button>
+    </div>
+  </div>
+
+  <!-- 設定完了ボタン -->
+  <div style="text-align: center; margin: 40px auto;">
+    <button id="startAdventure" style="padding: 12px 30px; font-size: 1rem; background-color: #00ffff; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">冒険を開始する！</button>
+  </div>
+
+  <footer>
+    <p>&copy; 20XX Surreal Inc.</p>
+  </footer>
+
+  <!-- 外部スクリプト読み込み -->
+  <script src="status.js"></script>
+  <script>
+    document.querySelectorAll(".oshi-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const oshi = btn.textContent;
+        localStorage.setItem("oshi", oshi);
+        updateStatus();
+      });
+    });
+
+    document.getElementById("setBase").addEventListener("click", () => {
+      const song = document.getElementById("favoriteSong").value;
+      localStorage.setItem("baseSong", song);
+      updateStatus();
+    });
+
+    document.getElementById("startAdventure").addEventListener("click", () => {
+      const oshi = localStorage.getItem("oshi");
+      const base = localStorage.getItem("baseSong");
+      localStorage.setItem("energy", 100);
+      if (oshi && base) {
+        window.location.href = "index.html";
+      } else {
+        alert("推しと拠点の設定を完了してください！");
+      }
+    });
+  </script>
+</body>
+</html>

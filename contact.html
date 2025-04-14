@@ -1,0 +1,141 @@
+<!-- contact.html（TALK - お問い合わせ：RPG UI＆バナー原状復帰） -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUEST | あなたの声を届ける冒険</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+    .quest-box {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+      border: 2px solid #00ffff;
+      border-radius: 20px;
+      text-align: left;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      font-family: 'Orbitron', sans-serif;
+    }
+    .quest-box h2 {
+      margin-bottom: 20px;
+      color: #00ffff;
+      text-align: center;
+    }
+    .quest-input {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: white;
+    }
+    .quest-box button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 25px;
+      background: #00ffff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .quest-box button:hover {
+      background: #ff00ff;
+      color: #fff;
+    }
+    .quest-status {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #00ffcc;
+      text-align: center;
+    }
+    /* RPG風UI要素 */
+    .rpg-ui {
+      background: repeating-linear-gradient(45deg, #222, #222 10px, #111 10px, #111 20px);
+      padding: 10px;
+      color: #00ffff;
+      font-size: 0.9rem;
+      border: 1px solid #00ffff;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="banner">
+      <img src="images/banner.jpg" alt="ゲームバナー" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">WHO</a></li>
+        <li><a href="services.html">WHAT</a></li>
+        <li><a href="cases.html">PROOF?</a></li>
+        <li><a href="contact.html">QUEST</a></li>
+      </ul>
+    </nav>
+  </header>
+
+   <!-- RPGステータスバー（推し・拠点・エネルギー） -->
+   <div class="rpg-ui" id="statusBox">
+    🧑‍🚀 推し：未選択 ｜ 🎵 拠点：未設定 ｜ 🔋 ENERGY：100%
+  </div>
+
+
+  <main>
+    <section class="hero">
+      <h1>クエスト：未知の存在とコンタクトせよ</h1>
+      <p>この世界の裏側に、あなたの声を届けるミッション開始。</p>
+
+      <div class="rpg-ui">
+        🧭 状態：探索中 ｜ 🎒 所持アイテム：フォームデータ ｜ 🔋 SP：89
+      </div>
+
+      <div class="quest-box">
+        <h2>🗝 あなたの情報を入力せよ</h2>
+        <input class="quest-input" type="text" id="name" placeholder="あなたの名" required>
+        <input class="quest-input" type="email" id="email" placeholder="魔法の通信先（メール）" required>
+        <textarea class="quest-input" id="message" rows="4" placeholder="送るべきメッセージ" required></textarea>
+        <button id="sendQuest">送信 → 異次元へ</button>
+        <p class="quest-status" id="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 20XX Surreal Inc. - この通信は記録された、かもしれない。</p>
+  </footer>
+
+  <script>
+    const sendBtn = document.getElementById("sendQuest");
+    const statusMsg = document.getElementById("status");
+
+    sendBtn.addEventListener("click", () => {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        statusMsg.textContent = "⚠ 入力が足りません。冒険に出る準備が整っていません。";
+        statusMsg.style.color = "#ff5555";
+        return;
+      }
+
+      statusMsg.textContent = "🛰 転送成功。メッセージは異次元に向かいました。";
+      statusMsg.style.color = "#00ffcc";
+    });
+  </script>
+</body>
+</html>

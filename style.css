@@ -1,0 +1,171 @@
+/* 全体の基本設定 */
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    background-size: 120% 120%;
+    background-position: center;
+    transition: background-position 0.2s ease;
+    color: #ffffff;
+    scroll-behavior: smooth;
+  }
+  
+  /* ヘッダー（上のナビゲーションバー） */
+  header {
+    background-color: #000000;
+  }
+  
+  /* バナー画像 */
+  .banner img {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: screen;
+    filter: grayscale(100%) brightness(1.2);
+    transition: opacity 1s ease;
+  }
+  
+  /* ナビゲーションメニュー */
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background: #111;
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin: 0 30px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #00ffff;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #ff00ff;
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #ff00ff;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  /* メインビジュアルのブロック */
+  .hero {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  /* タイトル・サブテキスト */
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff00ff;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: #cccccc;
+  }
+  
+  /* 画像（メインビジュアル） */
+  .hero-img {
+    width: 70%;
+    max-width: 600px;
+    margin-top: 40px;
+    box-shadow: 0 0 30px #00ffff55;
+    animation: float 5s ease-in-out infinite;
+  }
+  
+  /* RPG風ステータスバー */
+  .rpg-ui {
+    background: repeating-linear-gradient(45deg, #222, #222 10px, #111 10px, #111 20px);
+    padding: 10px;
+    color: #00ffff;
+    font-size: 0.9rem;
+    border: 1px solid #00ffff;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  /* 推しボタン */
+  .oshi-btn {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #00ffff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .oshi-btn:hover {
+    background-color: #ff00ff;
+    color: #fff;
+  }
+  
+  /* 曲入力エリア */
+  #songInputArea {
+    margin-top: 20px;
+  }
+  
+  #songInputArea input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    margin-right: 10px;
+  }
+  
+  #songInputArea button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ffff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #songInputArea button:hover {
+    background-color: #ff00ff;
+    color: white;
+  }
+  
+  /* フッター */
+  footer {
+    background-color: #111;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #777;
+  }
+  
+  /* 浮かぶアニメーション */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
